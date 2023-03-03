@@ -1,0 +1,5 @@
+AuctionTableIAM:
+  Effect: "Allow"
+  Action:
+    - "dynamodb:PutItem"
+  Resource: !GetAtt AuctionTable.Arn

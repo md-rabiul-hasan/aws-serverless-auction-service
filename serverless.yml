@@ -1,0 +1,26 @@
+service: aws-auction-service
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  stage: dev
+  region: us-east-1
+  environment:
+    DYNAMODB_TABLE_NAME: ${self:custom.auctionTableName}
+  iamRoleStatements:
+  - ${file(iam/AuctionTableIAM.yml):AuctionTableIAM}
+  
+custom:
+  auctionTableName: auction-table-${self:provider.stage}
+
+functions:
+  createAuction:
+    handler: src/handlers/auction.createAuction
+    events:
+      - http:
+          path: create-auction.
+          method: POST
+
+resources:
+  Resources:
+    AuctionTable: ${file(resources/AuctionTable.yml):AuctionTable}
