@@ -15,7 +15,7 @@ const handler = async (event) => {
         const params = {
             TableName: process.env.DYNAMODB_TABLE_NAME,
             IndexName: 'statusAndEndDate',
-            KeyConditionExpression: '#status = :status and endingAt >= :now',
+            KeyConditionExpression: '#status = :status and endingAt < :now',
             ExpressionAttributeValues: marshall({
                 ':status': 'OPEN',
                 ':now': now.toISOString()
