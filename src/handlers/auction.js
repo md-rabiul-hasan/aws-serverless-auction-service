@@ -18,11 +18,13 @@ const createAuction = async (event) => {
   const now = new Date();
   endDate.setHours(now.getHours() + 1);
 
+
   try {
     const { title } = JSON.parse(event.body);
     const body = {
       id: uuid(),
       title: title,
+      seller: event.requestContext.authorizer.claims.email,
       status: "OPEN",
       highestBid: {
         amount: 0,

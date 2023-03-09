@@ -7,6 +7,129 @@
 	},
 	"item": [
 		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"mdrabiulhasan.me@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{aws_url}}/dev/auth/signup",
+							"host": [
+								"{{aws_url}}"
+							],
+							"path": [
+								"dev",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"token\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"mdrabiulhasan.me@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{aws_url}}/dev/auth/login",
+							"host": [
+								"{{aws_url}}"
+							],
+							"path": [
+								"dev",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UserInfo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"rabiul.fci@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{aws_url}}/dev/auth/user-info",
+							"host": [
+								"{{aws_url}}"
+							],
+							"path": [
+								"dev",
+								"auth",
+								"user-info"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Create Auction",
 			"request": {
 				"auth": {
@@ -20,24 +143,19 @@
 						"type": "text"
 					},
 					{
-						"key": "Accept",
-						"value": "application/json",
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"WPL T20 Auction\"\r\n}"
+					"raw": "{\r\n    \"title\": \"Ban vs Eng T20 Auction\"\r\n}"
 				},
 				"url": {
-					"raw": "https://xekdgeaek5.execute-api.us-east-1.amazonaws.com/dev/create-auction",
-					"protocol": "https",
+					"raw": "{{aws_url}}/dev/create-auction",
 					"host": [
-						"xekdgeaek5",
-						"execute-api",
-						"us-east-1",
-						"amazonaws",
-						"com"
+						"{{aws_url}}"
 					],
 					"path": [
 						"dev",
@@ -60,14 +178,9 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "https://xekdgeaek5.execute-api.us-east-1.amazonaws.com/dev/get-auctions?status=OPEN",
-					"protocol": "https",
+					"raw": "{{aws_url}}/dev/get-auctions?status=OPEN",
 					"host": [
-						"xekdgeaek5",
-						"execute-api",
-						"us-east-1",
-						"amazonaws",
-						"com"
+						"{{aws_url}}"
 					],
 					"path": [
 						"dev",
@@ -85,23 +198,25 @@
 		},
 		{
 			"name": "Auction Details",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
-					"raw": "https://xekdgeaek5.execute-api.us-east-1.amazonaws.com/dev/auction-details/5fa38c8a-1532-47ae-8c19-6e287323ff3",
-					"protocol": "https",
+					"raw": "{{aws_url}}/dev/auction-details/c493d5c7-c0f3-419f-8ca7-bef9a9b44782",
 					"host": [
-						"xekdgeaek5",
-						"execute-api",
-						"us-east-1",
-						"amazonaws",
-						"com"
+						"{{aws_url}}"
 					],
 					"path": [
 						"dev",
 						"auction-details",
-						"5fa38c8a-1532-47ae-8c19-6e287323ff3"
+						"c493d5c7-c0f3-419f-8ca7-bef9a9b44782"
 					]
 				}
 			},
@@ -121,29 +236,24 @@
 						"type": "text"
 					},
 					{
-						"key": "Accept",
-						"value": "application/json",
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"highestBid\": {\r\n        \"amount\": 480\r\n    }\r\n}"
+					"raw": "{\r\n    \"amount\": 400\r\n}"
 				},
 				"url": {
-					"raw": "https://xekdgeaek5.execute-api.us-east-1.amazonaws.com/dev/auction/5fa38c8a-1532-47ae-8c19-6e287323ff3/place-bid",
-					"protocol": "https",
+					"raw": "{{aws_url}}/dev/auction/c493d5c7-c0f3-419f-8ca7-bef9a9b44782/place-bid",
 					"host": [
-						"xekdgeaek5",
-						"execute-api",
-						"us-east-1",
-						"amazonaws",
-						"com"
+						"{{aws_url}}"
 					],
 					"path": [
 						"dev",
 						"auction",
-						"5fa38c8a-1532-47ae-8c19-6e287323ff3",
+						"c493d5c7-c0f3-419f-8ca7-bef9a9b44782",
 						"place-bid"
 					]
 				}
@@ -177,14 +287,9 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "https://xekdgeaek5.execute-api.us-east-1.amazonaws.com/dev/auction/running-auction",
-					"protocol": "https",
+					"raw": "{{aws_url}}/dev/auction/running-auction",
 					"host": [
-						"xekdgeaek5",
-						"execute-api",
-						"us-east-1",
-						"amazonaws",
-						"com"
+						"{{aws_url}}"
 					],
 					"path": [
 						"dev",
@@ -222,14 +327,9 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "https://xekdgeaek5.execute-api.us-east-1.amazonaws.com/dev/auction/close-auction",
-					"protocol": "https",
+					"raw": "{{aws_url}}/dev/auction/close-auction",
 					"host": [
-						"xekdgeaek5",
-						"execute-api",
-						"us-east-1",
-						"amazonaws",
-						"com"
+						"{{aws_url}}"
 					],
 					"path": [
 						"dev",
