@@ -8,8 +8,8 @@ provider:
   environment:
     DYNAMODB_TABLE_NAME: ${self:custom.auctionTableName}
   iamRoleStatements:
-  - ${file(iam/AuctionTableIAM.yml):AuctionTableIAM}
-  
+    - ${file(iam/AuctionTableIAM.yml):AuctionTableIAM}
+
 custom:
   auctionTableName: auction-table-${self:provider.stage}
 
@@ -46,7 +46,7 @@ functions:
           method: GET
   processAuction:
     handler: src/handlers/processAuction.handler
-    events: 
+    events:
       - http:
           path: auction/close-auction
           method: GET

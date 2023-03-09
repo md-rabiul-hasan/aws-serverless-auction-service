@@ -243,7 +243,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-auction-service/dev/1678185098791-2023-03-07T10:31:38.791Z/aws-auction-service.zip"
+                "S3Key": "serverless/aws-auction-service/dev/1678337505911-2023-03-09T04:51:45.911Z/aws-auction-service.zip"
               },
               "Handler": "src/handlers/auction.createAuction",
               "Runtime": "nodejs16.x",
@@ -273,7 +273,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-auction-service/dev/1678185098791-2023-03-07T10:31:38.791Z/aws-auction-service.zip"
+                "S3Key": "serverless/aws-auction-service/dev/1678337505911-2023-03-09T04:51:45.911Z/aws-auction-service.zip"
               },
               "Handler": "src/handlers/auction.getAuctions",
               "Runtime": "nodejs16.x",
@@ -303,7 +303,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-auction-service/dev/1678185098791-2023-03-07T10:31:38.791Z/aws-auction-service.zip"
+                "S3Key": "serverless/aws-auction-service/dev/1678337505911-2023-03-09T04:51:45.911Z/aws-auction-service.zip"
               },
               "Handler": "src/handlers/auction.getAuctionDetails",
               "Runtime": "nodejs16.x",
@@ -333,7 +333,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-auction-service/dev/1678185098791-2023-03-07T10:31:38.791Z/aws-auction-service.zip"
+                "S3Key": "serverless/aws-auction-service/dev/1678337505911-2023-03-09T04:51:45.911Z/aws-auction-service.zip"
               },
               "Handler": "src/handlers/bid.placeBid",
               "Runtime": "nodejs16.x",
@@ -363,7 +363,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-auction-service/dev/1678185098791-2023-03-07T10:31:38.791Z/aws-auction-service.zip"
+                "S3Key": "serverless/aws-auction-service/dev/1678337505911-2023-03-09T04:51:45.911Z/aws-auction-service.zip"
               },
               "Handler": "src/lib/getEndedAuction.getEndedAuctions",
               "Runtime": "nodejs16.x",
@@ -393,7 +393,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/aws-auction-service/dev/1678185098791-2023-03-07T10:31:38.791Z/aws-auction-service.zip"
+                "S3Key": "serverless/aws-auction-service/dev/1678337505911-2023-03-09T04:51:45.911Z/aws-auction-service.zip"
               },
               "Handler": "src/handlers/processAuction.handler",
               "Runtime": "nodejs16.x",
@@ -416,64 +416,64 @@
               "ProcessAuctionLogGroup"
             ]
           },
-          "CreateAuctionLambdaVersion2Fk2iQGpUrJ0SfPUf4U9O2kX8tnLpNEwEJRutE7oE": {
+          "CreateAuctionLambdaVersionldqk5S5qvZMGHWluXTjEMKh9xLqAXxv1ELLQYRTgIs": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "CreateAuctionLambdaFunction"
               },
-              "CodeSha256": "KNAlxRZ0uFVGFmi1JvC+mqrUSWD1KVOumPhEI9Sb15M="
+              "CodeSha256": "dolKdMSejFrPO6l4dXMQFtdGOBUgCNy6XCyBL5vhEIg="
             }
           },
-          "GetAuctionsLambdaVersionmiibN17EAY6QaLT69ZLxM6xaNd34agGBbuhGs7D7Z8U": {
+          "GetAuctionsLambdaVersionDtcq9hMcsD8XFPxN5lxljjfbkIcEJWLCUufcct2u4": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetAuctionsLambdaFunction"
               },
-              "CodeSha256": "KNAlxRZ0uFVGFmi1JvC+mqrUSWD1KVOumPhEI9Sb15M="
+              "CodeSha256": "dolKdMSejFrPO6l4dXMQFtdGOBUgCNy6XCyBL5vhEIg="
             }
           },
-          "GetAuctionDetailsLambdaVersionEIsxS0owpIOsbDFWzbN5mj7gdtuYyhF7378xs7Xf8": {
+          "GetAuctionDetailsLambdaVersionwWiYHIJ4eSwc5MAboenYcbAlUW6drqQ6ndIFbmf0": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetAuctionDetailsLambdaFunction"
               },
-              "CodeSha256": "KNAlxRZ0uFVGFmi1JvC+mqrUSWD1KVOumPhEI9Sb15M="
+              "CodeSha256": "dolKdMSejFrPO6l4dXMQFtdGOBUgCNy6XCyBL5vhEIg="
             }
           },
-          "PlaceBidLambdaVersiont3moM3tDqtEDsGN8GArf6HLxCFUHCEMkWKgcm1j8": {
+          "PlaceBidLambdaVersionHijw2aYqFRIifLJzwl19feFj6Fr2gBnGwYO9hpUBCw": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "PlaceBidLambdaFunction"
               },
-              "CodeSha256": "KNAlxRZ0uFVGFmi1JvC+mqrUSWD1KVOumPhEI9Sb15M="
+              "CodeSha256": "dolKdMSejFrPO6l4dXMQFtdGOBUgCNy6XCyBL5vhEIg="
             }
           },
-          "GetEndedAuctionLambdaVersione08CREu3rwRKzRatdkvhLBcvsIdcjbM2j5Xcdd1WJn4": {
+          "GetEndedAuctionLambdaVersionLU3D7RhCvPQQrv56TsPcABJkTGK2roTmBR0uB9U6C50": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetEndedAuctionLambdaFunction"
               },
-              "CodeSha256": "KNAlxRZ0uFVGFmi1JvC+mqrUSWD1KVOumPhEI9Sb15M="
+              "CodeSha256": "dolKdMSejFrPO6l4dXMQFtdGOBUgCNy6XCyBL5vhEIg="
             }
           },
-          "ProcessAuctionLambdaVersionz6H5JAVYg3O237WF4vG58IiNk9QPkDx23xicBxZQY": {
+          "ProcessAuctionLambdaVersionRH90C9DlmXOOa5WE11chR3opfKZeqsSNWbKahwJxgA": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ProcessAuctionLambdaFunction"
               },
-              "CodeSha256": "KNAlxRZ0uFVGFmi1JvC+mqrUSWD1KVOumPhEI9Sb15M="
+              "CodeSha256": "dolKdMSejFrPO6l4dXMQFtdGOBUgCNy6XCyBL5vhEIg="
             }
           },
           "ApiGatewayRestApi": {
@@ -884,7 +884,7 @@
               "ProcessAuctionLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1678185088131": {
+          "ApiGatewayDeployment1678337496477": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -1181,7 +1181,7 @@
           "CreateAuctionLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "CreateAuctionLambdaVersion2Fk2iQGpUrJ0SfPUf4U9O2kX8tnLpNEwEJRutE7oE"
+              "Ref": "CreateAuctionLambdaVersionldqk5S5qvZMGHWluXTjEMKh9xLqAXxv1ELLQYRTgIs"
             },
             "Export": {
               "Name": "sls-aws-auction-service-dev-CreateAuctionLambdaFunctionQualifiedArn"
@@ -1190,7 +1190,7 @@
           "GetAuctionsLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetAuctionsLambdaVersionmiibN17EAY6QaLT69ZLxM6xaNd34agGBbuhGs7D7Z8U"
+              "Ref": "GetAuctionsLambdaVersionDtcq9hMcsD8XFPxN5lxljjfbkIcEJWLCUufcct2u4"
             },
             "Export": {
               "Name": "sls-aws-auction-service-dev-GetAuctionsLambdaFunctionQualifiedArn"
@@ -1199,7 +1199,7 @@
           "GetAuctionDetailsLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetAuctionDetailsLambdaVersionEIsxS0owpIOsbDFWzbN5mj7gdtuYyhF7378xs7Xf8"
+              "Ref": "GetAuctionDetailsLambdaVersionwWiYHIJ4eSwc5MAboenYcbAlUW6drqQ6ndIFbmf0"
             },
             "Export": {
               "Name": "sls-aws-auction-service-dev-GetAuctionDetailsLambdaFunctionQualifiedArn"
@@ -1208,7 +1208,7 @@
           "PlaceBidLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "PlaceBidLambdaVersiont3moM3tDqtEDsGN8GArf6HLxCFUHCEMkWKgcm1j8"
+              "Ref": "PlaceBidLambdaVersionHijw2aYqFRIifLJzwl19feFj6Fr2gBnGwYO9hpUBCw"
             },
             "Export": {
               "Name": "sls-aws-auction-service-dev-PlaceBidLambdaFunctionQualifiedArn"
@@ -1217,7 +1217,7 @@
           "GetEndedAuctionLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetEndedAuctionLambdaVersione08CREu3rwRKzRatdkvhLBcvsIdcjbM2j5Xcdd1WJn4"
+              "Ref": "GetEndedAuctionLambdaVersionLU3D7RhCvPQQrv56TsPcABJkTGK2roTmBR0uB9U6C50"
             },
             "Export": {
               "Name": "sls-aws-auction-service-dev-GetEndedAuctionLambdaFunctionQualifiedArn"
@@ -1226,7 +1226,7 @@
           "ProcessAuctionLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ProcessAuctionLambdaVersionz6H5JAVYg3O237WF4vG58IiNk9QPkDx23xicBxZQY"
+              "Ref": "ProcessAuctionLambdaVersionRH90C9DlmXOOa5WE11chR3opfKZeqsSNWbKahwJxgA"
             },
             "Export": {
               "Name": "sls-aws-auction-service-dev-ProcessAuctionLambdaFunctionQualifiedArn"
@@ -1366,7 +1366,7 @@
         "timeout": 6,
         "runtime": "nodejs16.x",
         "vpc": {},
-        "versionLogicalId": "CreateAuctionLambdaVersion2Fk2iQGpUrJ0SfPUf4U9O2kX8tnLpNEwEJRutE7oE"
+        "versionLogicalId": "CreateAuctionLambdaVersionldqk5S5qvZMGHWluXTjEMKh9xLqAXxv1ELLQYRTgIs"
       },
       "getAuctions": {
         "handler": "src/handlers/auction.getAuctions",
@@ -1385,7 +1385,7 @@
         "timeout": 6,
         "runtime": "nodejs16.x",
         "vpc": {},
-        "versionLogicalId": "GetAuctionsLambdaVersionmiibN17EAY6QaLT69ZLxM6xaNd34agGBbuhGs7D7Z8U"
+        "versionLogicalId": "GetAuctionsLambdaVersionDtcq9hMcsD8XFPxN5lxljjfbkIcEJWLCUufcct2u4"
       },
       "getAuctionDetails": {
         "handler": "src/handlers/auction.getAuctionDetails",
@@ -1404,7 +1404,7 @@
         "timeout": 6,
         "runtime": "nodejs16.x",
         "vpc": {},
-        "versionLogicalId": "GetAuctionDetailsLambdaVersionEIsxS0owpIOsbDFWzbN5mj7gdtuYyhF7378xs7Xf8"
+        "versionLogicalId": "GetAuctionDetailsLambdaVersionwWiYHIJ4eSwc5MAboenYcbAlUW6drqQ6ndIFbmf0"
       },
       "placeBid": {
         "handler": "src/handlers/bid.placeBid",
@@ -1423,7 +1423,7 @@
         "timeout": 6,
         "runtime": "nodejs16.x",
         "vpc": {},
-        "versionLogicalId": "PlaceBidLambdaVersiont3moM3tDqtEDsGN8GArf6HLxCFUHCEMkWKgcm1j8"
+        "versionLogicalId": "PlaceBidLambdaVersionHijw2aYqFRIifLJzwl19feFj6Fr2gBnGwYO9hpUBCw"
       },
       "getEndedAuction": {
         "handler": "src/lib/getEndedAuction.getEndedAuctions",
@@ -1442,7 +1442,7 @@
         "timeout": 6,
         "runtime": "nodejs16.x",
         "vpc": {},
-        "versionLogicalId": "GetEndedAuctionLambdaVersione08CREu3rwRKzRatdkvhLBcvsIdcjbM2j5Xcdd1WJn4"
+        "versionLogicalId": "GetEndedAuctionLambdaVersionLU3D7RhCvPQQrv56TsPcABJkTGK2roTmBR0uB9U6C50"
       },
       "processAuction": {
         "handler": "src/handlers/processAuction.handler",
@@ -1461,7 +1461,7 @@
         "timeout": 6,
         "runtime": "nodejs16.x",
         "vpc": {},
-        "versionLogicalId": "ProcessAuctionLambdaVersionz6H5JAVYg3O237WF4vG58IiNk9QPkDx23xicBxZQY"
+        "versionLogicalId": "ProcessAuctionLambdaVersionRH90C9DlmXOOa5WE11chR3opfKZeqsSNWbKahwJxgA"
       }
     },
     "resources": {
@@ -1536,7 +1536,7 @@
     "artifact": "D:\\Learning\\sls-tutorial\\aws-auction-service\\.serverless\\aws-auction-service.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/aws-auction-service/dev/1678185098791-2023-03-07T10:31:38.791Z",
+    "artifactDirectoryName": "serverless/aws-auction-service/dev/1678337505911-2023-03-09T04:51:45.911Z",
     "artifact": "aws-auction-service.zip"
   }
 }
