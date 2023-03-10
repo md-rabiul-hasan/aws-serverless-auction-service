@@ -4,6 +4,9 @@ AuctionTableIAM:
     - cognito-idp:AdminInitiateAuth
     - cognito-idp:AdminCreateUser
     - cognito-idp:AdminSetUserPassword
+    - ses:SendEmail
+    - sqs:ReceiveMessage
+    - sqs:SendMessage
     - "dynamodb:PutItem"
     - "dynamodb:Scan"
     - "dynamodb:GetItem"

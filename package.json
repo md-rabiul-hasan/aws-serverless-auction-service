@@ -13,6 +13,8 @@
   "dependencies": {
     "@aws-sdk/client-cognito-identity-provider": "^3.287.0",
     "@aws-sdk/client-dynamodb": "^3.18.0",
+    "@aws-sdk/client-ses": "^3.288.0",
+    "@aws-sdk/client-sqs": "^3.288.0",
     "@aws-sdk/util-dynamodb": "^3.18.0",
     "@middy/core": "^4.2.6",
     "@middy/http-error-handler": "^4.2.6",

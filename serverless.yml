@@ -9,11 +9,16 @@ provider:
     DYNAMODB_TABLE_NAME: ${self:custom.auctionTableName}
     user_pool_id: { Ref: UserPool }
     client_id: { Ref: UserClient }
+    MAIL_QUEUE_URL: ${self:custom.sendMailQueue.url}
   iamRoleStatements:
     - ${file(iam/AuctionTableIAM.yml):AuctionTableIAM}
 
 custom:
   auctionTableName: auction-table-${self:provider.stage}
+  sendMailQueue:
+    name: MailQueue-${self:provider.stage}
+    arn: !GetAtt MailQueue.Arn
+    url: !Ref MailQueue
 
 functions:
   createAuction: ${file(aws/function/LambdaFunction.yml):createAuctionFunction} # Authenticated
@@ -27,9 +32,19 @@ functions:
       - http:
           path: auction/close-auction
           method: GET
+    # events:
+    #   - schedule: rate(1 minute)
+
   signupUser: ${file(aws/function/LambdaFunction.yml):signupUserFunction}
   loginUser: ${file(aws/function/LambdaFunction.yml):loginUserFunction}
   userInfo: ${file(aws/function/LambdaFunction.yml):userInfoFunction} #Authenticated
+  sendMail:
+    handler: src/mail/sendmail.handler
+    events:
+      - sqs:
+          arn: ${self:custom.sendMailQueue.arn}
+          batchSize: 1
+
 
 
 resources:
@@ -60,3 +75,7 @@ resources:
         IdTokenValidity: 5
         ExplicitAuthFlows:
           - "ADMIN_NO_SRP_AUTH"
+    MailQueue: ${file(resources/MailQueue.yml):MailQueue}
+  Outputs:
+    MailQueueArn: ${file(resources/MailQueue.yml):Outputs.MailQueueArn}
+    MailQueueUrl: ${file(resources/MailQueue.yml):Outputs.MailQueueUrl}

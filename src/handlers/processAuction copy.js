@@ -31,17 +31,16 @@ const handler = async (event) => {
 
     const { Items } = await db.send(new QueryCommand(params));
 
-    // Use for loop instead of map to await for email to be sent before moving to the next item
-    for (let i = 0; i < Items.length; i++) {
-      let item_data = unmarshall(Items[i]);
+    Items.map((item) => {
+      let item_data = unmarshall(item);
 
-      // SELLER MAIL SEND
-      await sendMail(item_data); // Add await keyword here to wait for email to be sent before moving to the next item
+      // MAIL SEND 
+      sendMail();
 
-     
-      updateResult = await updateClosedAuction(item_data);
+      updateResult = updateClosedAuction(item_data);
+      console.log(updateResult);
       count++;
-    }
+    });
 
     response.statusCode = 200;
     response.body = JSON.stringify({
@@ -67,58 +66,41 @@ const updateClosedAuction = async (item) => {
     Key: marshall({ id: item.id }),
     UpdateExpression: "set #status = :status", // set the attribute to a new value
     ExpressionAttributeNames: { "#status": "status" }, // specify the attribute name
-    ExpressionAttributeValues: marshall({ ":status": "CLOSE" }), // specify the attribute value
+    ExpressionAttributeValues: marshall({ ":status": "OPEN" }), // specify the attribute value
   };
   await db.send(new UpdateItemCommand(params)); 
 
 };
 
-const sendMail = async (item) => {
-  const { title, seller, highestBid } = item;
+const sendMail = async () => {
 
-  await notifySeller(seller, title, highestBid.amount); //seller notification 
-  await notifyBidder(highestBid.email, title, highestBid.amount); //bidder notification 
-
-};
-
-const notifySeller = async (seller, title, amount) => {
+  
   const params = {
-    QueueUrl: process.env.MAIL_QUEUE_URL,
-    MessageBody: JSON.stringify({
-      subject: 'Your item has been sold!',
-      recipient: seller,
-      body: `Woohoo! Your item "${title}" has been sold for $${amount}.`,
-    }),
+    Source: "mdrabiulhasan.me@gmail.com",
+    Destination: {
+      ToAddresses: ["rabiul.fci@gmail.com"],
+    },
+    Message: {
+      Subject: {
+        Data: "AWS",
+      },
+      Body: {
+        Text: {
+          Data:"AWS Send Mail",
+        },
+      },
+    },
   };
   
-  try {
-    const data = await sqs.send(new SendMessageCommand(params));
-    return data;
-  } catch (err) {
-    console.error(`Error sending message to ${seller} for ${title}: ${err}`);
-  }
-};
-
-const notifyBidder = async (bidder, title, amount) => {
-  const params = {
-    QueueUrl: process.env.MAIL_QUEUE_URL,
-    MessageBody: JSON.stringify({
-      subject: 'You won an auction!',
-      recipient: bidder,
-      body: `What a great deal! You got yourself a "${title}" for $${amount}.`,
-    }),
-  };
+  const sendEmailCommand = new SendEmailCommand(params);
   
   try {
-    const data = await sqs.send(new SendMessageCommand(params));
-    return data;
+    const response = await client.send(sendEmailCommand);
+    return response;
   } catch (err) {
-    console.error(`Error sending message to ${bidder} for ${title}: ${err}`);
+    console.error(err, err.stack);
   }
 };
-
-
-
 
 module.exports = {
   handler,
